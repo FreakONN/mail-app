@@ -13,13 +13,13 @@ $scope.addUser = function(){
     name: $scope.newPost.name,
     username: $scope.newPost.username,
     email: $scope.newPost.email,
-    adress:
+
+    address: 
     {
-       street: $scope.newPost.street,
-       suite: $scope.newPost.suite,
-       city: $scope.newPost.city
+            street : $scope.newPost.address.street,
+            suite : $scope.newPost.address.suite,
+            city : $scope.newPost.address.city
     }
-   
   })
 
   .success(function(data, status, headers, config){

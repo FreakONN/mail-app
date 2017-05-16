@@ -35,7 +35,10 @@
                     </tr>
 
                     <tr ng-repeat="day in fiveDay">
-                       <td>{{ day.id }}</td>
+                       <td>{{ day.id }}
+                       <button data-ng-click="removeUser($index)">Remove</button>
+                       <button data-ng-click="removePost()">Remove row</button>
+                       </td>
                        <td>{{ day.name }}</td>
                        <td>{{ day.username }}</td>
                        <td>{{ day.email }}</td>

@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+  <head>
+<!--     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" /> -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <!-- Include the AngularJS library -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+  </head>
+  <body ng-app="ForecastApp">
+
+    <div class="main" ng-controller="MainController">
+      <div class="container">
+        <div class="row">
+            <div class="forecast">
+              <table class="table table-bordered table table-hover">
+                      <tr>
+                       <th class="info" rowspan="2">ID</th>
+                       <th class="info" rowspan="2">Name</th>
+                       <th class="info" rowspan="2">User Name</th>
+                       <th class="info" rowspan="2">Email</th>
+                       <th class="info" colspan="3">Address</th>              
+                      </tr>
+
+                    <tr>
+                       <th class="info" >Street</th>
+                       <th class="info">Suite</th>
+                       <th class="info">City</th>
+                    </tr>
+
+                    <tr ng-repeat="day in fiveDay">
+                       <td>{{ day.id }}</td>
+                       <td>{{ day.name }}</td>
+                       <td>{{ day.username }}</td>
+                       <td>{{ day.email }}</td>
+                       <td>{{ day.address.street }}</td>
+                       <td>{{ day.address.suite }}</td>
+                       <td>{{ day.address.city }}</td>
+                    </tr>
+              </table>
+
+              <table class="table table-bordered table table-hover">
+                    <tr>
+                       <td><input type="text" ng-model="newPost.id" placeholder="User id"></td>
+                       <td><input type="text" ng-model="newPost.name" placeholder="User name"></td>
+                       <td><input type="text" ng-model="newPost.username" placeholder="User username"></td>
+                       <td><input type="text" ng-model="newPost.email" placeholder="User email"></td>
+                       <td><input type="text" ng-model="newPost.adress.street" placeholder="User street"></td>
+                       <td><input type="text" ng-model="newPost.address.suite" placeholder="User suite"></td>
+                       <td><input type="text" ng-model="newPost.address.suite" placeholder="User city"></td>
+                    </tr>
+              </table>
+            <button ng-click="addUser()">Add user</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modules -->
+    <script src="js/app.js"></script>
+
+    <!-- Controllers -->
+    <script src="js/controllers/MainController.js"></script>
+
+    <!-- Services -->
+    <script src="js/services/forecast.js"></script>
+
+    <!-- Directives -->
+
+
+  </body>
+</html>

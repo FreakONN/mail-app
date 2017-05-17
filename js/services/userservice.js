@@ -31,8 +31,8 @@ app.factory('userservice', ['$http', '$filter', function($http,$filter)
 		 	    address: 
 		 	    {
 		 	            street : $scope.newPost.address.street,
-		 	            suite : $scope.newPost.address.suite,
-		 	            city : $scope.newPost.address.city
+		 	            suite  : $scope.newPost.address.suite,
+		 	            city   : $scope.newPost.address.city
 		 	    }
 		   	})
 			.success(function(data, status, headers, config)

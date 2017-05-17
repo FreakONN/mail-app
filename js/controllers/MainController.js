@@ -1,10 +1,10 @@
 //we used the forecast service to fetch data from the server
 //First we added forecast into MainController as a dependency so that it's available to use. 
 //Then within the controller we used forecast to asynchronously fetch the weather data from the server and store it into $scope.fiveDay
-app.controller('MainController', ['$scope', 'forecast',  '$http',  function($scope, forecast, $http) { 
-    $scope.fiveDay = []; 
-    forecast.success(function(data) { 
-    $scope.fiveDay = data;
+app.controller('MainController', ['$scope', 'userservice',  '$http',  function($scope, userservice, $http) { 
+    $scope.users = []; 
+    userservice.success(function(data) { 
+    $scope.users = data;
   });
 
 $scope.addUser = function(){
@@ -23,7 +23,7 @@ $scope.addUser = function(){
 
   .success(function(data, status, headers, config){
     console.log(data);
-    $scope.fiveDay.push($scope.newPost);
+    $scope.users.push($scope.newPost);
     $scope.newPost = {};
   })
   .error(function(error, status, headers, config){
@@ -31,18 +31,19 @@ $scope.addUser = function(){
   });
 }
 
+//simple remove array remove function 
 $scope.removeUser = function(index)
 {
-    $scope.fiveDay.splice(index, 1);
+    $scope.users.splice(index, 1);
 }
-  //ne radi kako treba - na stacku predlažu upgrade na 1.6.*
+  //not working properly localy - raised issue on stack
   $scope.removePost = function () {
             var data = 
             {
               id: $scope.newPost.id
             } 
             //Error: $scope.newPost is undefined
-            //možemo direktno proslijediti vrijdnost ili preko $routeParams i indexa dokhvatiti 'id'
+            //forwarding paramaeters directly or with pulling them with $routeParams and index 'id'
             $http.delete('http://jsonplaceholder.typicode.com/users/' + data)
             .success(function (data, status, headers, config) {
                 $scope.ServerResponse = data;

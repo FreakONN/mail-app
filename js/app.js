@@ -8,4 +8,4 @@ The ng-bind directive binds application data to the HTML view.
 //myApp je novi modul (new module)
 //modul sadrži različite komponente angularjs app-a
 
-var app = angular.module('ForecastApp', []);
+var app = angular.module('MailApp', []);

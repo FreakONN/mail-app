@@ -13,7 +13,7 @@
     <!-- Include the AngularJS library -->
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
   </head>
-  <body ng-app="ForecastApp">
+  <body ng-app="MailApp">
 
     <div class="main" ng-controller="MainController">
       <div class="container">
@@ -34,17 +34,17 @@
                        <th class="info">City</th>
                     </tr>
 
-                    <tr ng-repeat="day in fiveDay">
-                       <td>{{ day.id }}
+                    <tr ng-repeat="user in users">
+                       <td>{{ user.id }}
                        <button data-ng-click="removeUser($index)">Remove</button>
                        <button data-ng-click="removePost()">Remove row</button>
                        </td>
-                       <td>{{ day.name }}</td>
-                       <td>{{ day.username }}</td>
-                       <td>{{ day.email }}</td>
-                       <td>{{ day.address.street }}</td>
-                       <td>{{ day.address.suite }}</td>
-                       <td>{{ day.address.city }}</td>
+                       <td>{{ user.name }}</td>
+                       <td>{{ user.username }}</td>
+                       <td>{{ user.email }}</td>
+                       <td>{{ user.address.street }}</td>
+                       <td>{{ user.address.suite }}</td>
+                       <td>{{ user.address.city }}</td>
                     </tr>
               </table>
 
@@ -72,7 +72,7 @@
     <script src="js/controllers/MainController.js"></script>
 
     <!-- Services -->
-    <script src="js/services/forecast.js"></script>
+    <script src="js/services/userservice.js"></script>
 
     <!-- Directives -->
 

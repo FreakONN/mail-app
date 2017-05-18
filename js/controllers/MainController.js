@@ -23,9 +23,9 @@ app.controller('MainController', ['$scope', 'userservice',  '$http',  function($
     $scope.removePost = function () {
         var data =
             {
-                id: $scope.newPost.id
+                id: $scope.newPost.id  //Error: $scope.newPost is undefined
             }
-        //Error: $scope.newPost is undefined
+
         //forwarding paramaeters directly or with pulling them with $routeParams and index 'id'
         $http.delete('http://jsonplaceholder.typicode.com/users/' + data)
             .success(function (data, status, headers, config) {
